@@ -72,8 +72,7 @@ const GOOGLE_FORM_FIELDS = {
   email:   'entry.1340431861',
   address: 'entry.519450992',
   service: 'entry.142576893',
-  // Your form splits Date and Time into separate year/month/day and
-  // hour/minute sub-fields rather than one field each — handled below.
+  service_sentinel: 'entry.142576893_sentinel',
   date_year:   'entry.2138604486_year',
   date_month:  'entry.2138604486_month',
   date_day:    'entry.2138604486_day',
