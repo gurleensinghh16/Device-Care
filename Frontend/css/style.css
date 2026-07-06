@@ -153,6 +153,7 @@ input{ font-family: inherit; }
   background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
   display: flex; align-items: center; justify-content: center;
   box-shadow: var(--shadow-sm);
+  animation: logoSpin 1s ease-out;
 }
 .nav-links{
   display: flex;
@@ -305,6 +306,10 @@ input{ font-family: inherit; }
 @keyframes cardFloat{
   0%, 100%{ transform: translateY(0); }
   50%{ transform: translateY(-6px); }
+}
+@keyframes logoSpin{
+  from{ transform: rotate(-180deg) scale(0.5); opacity: 0; }
+  to{ transform: rotate(0deg) scale(1); opacity: 1; }
 }
 
 /* ===================================================
@@ -854,7 +859,19 @@ input{ font-family: inherit; }
   align-items: center;
   justify-content: center;
 }
+/* Scroll reveal effect */
+[data-reveal]{
+  opacity: 0;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+[data-reveal="left"]{ transform: translateX(-60px); }
+[data-reveal="right"]{ transform: translateX(60px); }
+[data-reveal="up"]{ transform: translateY(40px); }
 
+[data-reveal].is-visible{
+  opacity: 1;
+  transform: translate(0, 0);
+}
 @media (max-width: 640px){
   .form-row{ grid-template-columns: 1fr; }
   .booking-modal{ padding: 28px 22px; }

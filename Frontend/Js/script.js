@@ -182,3 +182,26 @@ bookingForm.addEventListener('submit', (e) => {
       bookingSuccessView.hidden = false;
     });
 });
+// ===================================================
+// Scroll reveal (Intersection Observer)
+// ===================================================
+
+// Hero elements animate on page load with a slight delay (not scroll-triggered,
+// since they're visible immediately)
+document.querySelectorAll('.hero [data-reveal]').forEach((el, i) => {
+  setTimeout(() => el.classList.add('is-visible'), 300 + i * 150);
+});
+
+// Everything else still animates on scroll
+const revealElements = document.querySelectorAll('[data-reveal]:not(.hero [data-reveal])');
+
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting){
+      entry.target.classList.add('is-visible');
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+revealElements.forEach(el => revealObserver.observe(el));
