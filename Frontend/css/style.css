@@ -366,8 +366,7 @@ input{ font-family: inherit; }
 }
 .service-card .btn{ margin-top: auto; }
 .service-card--popular{
-  border-color: var(--color-primary);
-  box-shadow: 0 12px 32px -10px rgba(37,99,235,0.25);
+  border-color: var(--color-border);
 }
 .badge-popular{
   position: absolute;
