@@ -120,6 +120,18 @@ input{ font-family: inherit; }
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-border);
 }
+.navbar__progress{
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-secondary));
+  background-size: 200% 100%;
+  /* updated on scroll via JS (see script.js) — short transition just
+     smooths out the per-frame jumps rather than animating on its own */
+  transition: background-position 0.1s linear;
+}
 .navbar__inner{
   display: flex;
   align-items: center;
@@ -146,50 +158,38 @@ input{ font-family: inherit; }
   align-items: center;
   gap: 32px;
 }
+
+/* Single source of truth for nav-link styling + animated underline
+   (previously duplicated into two conflicting rule blocks with
+   mismatched hover colors, underline offsets, and border-radius) */
 .nav-link{
-    position: relative;
-    padding: 4px 0;
-
-    font-size: .925rem;
-    font-weight: 500;
-
-    color: var(--color-text-muted);
-
-    transition: color .3s ease;
+  position: relative;
+  font-size: 0.925rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  padding: 4px 0;
+  transition: color 0.2s ease;
 }
-
 .nav-link::after{
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 100%;
-    height: 2px;
-    background: var(--color-primary);
-
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform .3s ease;
-
-    border-radius: 999px;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary);
+  border-radius: var(--radius-pill);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.25s ease;
 }
-
-.nav-link:hover{
-    color: var(--color-primary);
-}
-
+.nav-link:hover{ color: var(--color-text); }
 .nav-link:hover::after,
 .nav-link.active::after{
-
-    transform: scaleX(1);
-
+  transform: scaleX(1);
 }
+.nav-link.active{ color: var(--color-primary); }
 
-.nav-link.active{
-
-    color: var(--color-primary);
-
-}
 .navbar__actions{ display: flex; align-items: center; gap: 12px; }
 
 .menu-toggle{
@@ -209,7 +209,7 @@ input{ font-family: inherit; }
    Hero
 =================================================== */
 .hero{
-  padding:70px 0;
+  padding: 70px 0;
   background:
     radial-gradient(600px 300px at 85% -10%, rgba(37,99,235,0.10), transparent),
     radial-gradient(500px 260px at 0% 100%, rgba(16,185,129,0.08), transparent);
@@ -257,70 +257,51 @@ input{ font-family: inherit; }
   font-weight: 700;
 }
 
-/* Hero visual: illustration */
+/* Hero visual: illustration (merged from three separate,
+   partially-overlapping .hero__visual rule blocks) */
 .hero__visual{
-    position:relative;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 .hero__visual::before{
-    content:"";
-    position:absolute;
-
-    width:470px;
-height:520px;
-
-    background:#EFF6FF;
-
-    border-radius:50%;
-
-    z-index:-1;
-    left:50%;
-top:50%;
-
-transform:translate(-50%,-50%);
-}
-.hero__visual{
-    display:flex;
-    justify-content:center;
-    align-items:center;
+  content: "";
+  position: absolute;
+  width: 470px;
+  height: 520px;
+  background: #EFF6FF;
+  border-radius: 50%;
+  z-index: -1;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 .hero-image{
-    width:100%;
-    max-width:500px;
-    height:auto;
-    object-fit:contain;
-    transform:scale(.96);
-    filter:drop-shadow(0 20px 30px rgba(0,0,0,.08));
-
-    animation:float 6s ease-in-out infinite;
-    opacity:0;
-    animation:
-        heroFade .8s ease forwards,
-        float 6s ease-in-out infinite .8s;
+  width: 100%;
+  max-width: 500px;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0,0,0,.08));
+  opacity: 0;
+  animation:
+    heroFade .8s ease forwards,
+    heroFloat 6s ease-in-out infinite .8s;
 }
 
+/* Scale is now baked into both keyframes below — previously a static
+   transform: scale(.96) on .hero-image was silently discarded because
+   the animation shorthand replaces the whole transform value every frame,
+   so the image lost its scale the moment either animation started. */
 @keyframes heroFade{
-    from{
-        opacity:0;
-        transform:translateY(20px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
+  from{ opacity: 0; transform: translateY(20px) scale(.96); }
+  to{ opacity: 1; transform: translateY(0) scale(.96); }
+}
+@keyframes heroFloat{
+  0%, 100%{ transform: translateY(0) scale(.96); }
+  50%{ transform: translateY(-8px) scale(.96); }
 }
 
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-}
 /* ===================================================
    Sections (shared)
 =================================================== */
@@ -356,9 +337,8 @@ transform:translateY(-8px);
   margin-bottom: 56px;
 }
 .service-card{
-    display:flex;
-
-flex-direction:column;
+  display: flex;
+  flex-direction: column;
   background: var(--color-card);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
@@ -367,11 +347,7 @@ flex-direction:column;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   position: relative;
 }
-.service-card .btn{
-
-margin-top:auto;
-
-}
+.service-card .btn{ margin-top: auto; }
 .service-card:hover{ transform: translateY(-6px); box-shadow: var(--shadow-md); }
 .service-card--popular{
   border-color: var(--color-primary);
@@ -592,106 +568,53 @@ margin-top:auto;
   text-align: center;
 }
 
-.floating-book-btn span{
-
-font-size:15px;
-
-
-}
 /* ===============================
    Floating Book Button
 ================================= */
-
 .floating-book-btn{
-
-    position:fixed;
-
-    right:30px;
-    bottom:30px;
-
-    display:flex;
-    align-items:center;
-    gap:12px;
-
-    padding:16px 26px;
-
-    background:linear-gradient(135deg,#2563EB,#1D4ED8);
-
-    color:white;
-
-    font-weight:600;
-    font-size:15px;
-
-    border-radius:999px;
-
-    text-decoration:none;
-
-    z-index:9999;
-
-    box-shadow:
-        0 12px 30px rgba(37,99,235,.35),
-        0 4px 10px rgba(0,0,0,.12);
-
-    transition:.35s ease;
-
-    animation:
-        floating 4s ease-in-out infinite,
-        pulse 3s infinite;
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 26px;
+  background: linear-gradient(135deg, #2563EB, #1D4ED8);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 999px;
+  text-decoration: none;
+  z-index: 9999;
+  box-shadow:
+    0 12px 30px rgba(37,99,235,.35),
+    0 4px 10px rgba(0,0,0,.12);
+  transition: .35s ease;
+  /* was "floating 4s..." — no keyframes named "floating" existed,
+     so this animation silently never ran. Fixed to reference @keyframes float. */
+  animation:
+    float 4s ease-in-out infinite,
+    pulse 3s infinite;
 }
-
-.floating-icon{
-
-    font-size:18px;
-
-}
+.floating-book-btn span{ font-size: 15px; }
+.floating-icon{ font-size: 18px; }
 .floating-book-btn:hover{
-
-    transform:translateY(-5px) scale(1.04);
-
-    box-shadow:
-        0 18px 40px rgba(37,99,235,.45),
-        0 10px 20px rgba(0,0,0,.15);
-
+  transform: translateY(-5px) scale(1.04);
+  box-shadow:
+    0 18px 40px rgba(37,99,235,.45),
+    0 10px 20px rgba(0,0,0,.15);
 }
+
 @keyframes float{
-
-    0%,100%{
-
-        transform:translateY(0);
-
-    }
-
-    50%{
-
-        transform:translateY(-8px);
-
-    }
-
+  0%, 100%{ transform: translateY(0); }
+  50%{ transform: translateY(-8px); }
 }
 @keyframes pulse{
-
-    0%{
-
-        box-shadow:
-        0 12px 30px rgba(37,99,235,.35);
-
-    }
-
-    50%{
-
-        box-shadow:
-        0 20px 45px rgba(37,99,235,.55);
-
-    }
-
-    100%{
-
-        box-shadow:
-        0 12px 30px rgba(37,99,235,.35);
-
-    }
-
+  0%{ box-shadow: 0 12px 30px rgba(37,99,235,.35); }
+  50%{ box-shadow: 0 20px 45px rgba(37,99,235,.55); }
+  100%{ box-shadow: 0 12px 30px rgba(37,99,235,.35); }
 }
+
 /* ===================================================
    Responsive
 =================================================== */
@@ -705,7 +628,7 @@ font-size:15px;
 @media (max-width: 900px){
   .hero__inner{ grid-template-columns: 1fr; }
   .hero__visual{ order: -1; max-width: 320px; margin: 0 auto; }
-  
+
   .nav-links{
     position: fixed;
     top: 72px; left: 0; right: 0;
@@ -737,19 +660,12 @@ font-size:15px;
   .cta-section__actions .btn{ width: 100%; }
 }
 
-@media(max-width:768px){
-
-.floating-book-btn{
-
-    right:30px;
-    bottom:40px;
-
-}
-
-.floating-book-btn span:last-child{
-
-    display:none;
-
-}
-
+@media (max-width: 768px){
+  .floating-book-btn{
+    right: 30px;
+    bottom: 40px;
+  }
+  .floating-book-btn span:last-child{
+    display: none;
+  }
 }

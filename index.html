@@ -6,7 +6,7 @@
 <title>LaptopCare — Professional Laptop Care At Your Doorstep</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="Frontend/css/style.css">
 </head>
 
 <body>
@@ -34,8 +34,14 @@
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
-    
+    <div class="navbar__actions">
+      <a href="#booking" class="btn btn--primary btn--sm">Book Now</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
   </div>
+  <div class="navbar__progress" id="navProgress"></div>
 </header>
 
 <!-- ========== HERO ========== -->
@@ -59,7 +65,7 @@
     </div>
     <div class="hero__visual">
   <img
-        src="image.png"
+        src="Frontend/Assets/image.png"
         alt="Laptop technician servicing a laptop"
         class="hero-image"
     >
@@ -97,7 +103,6 @@
           <li>Internal Dust Removal</li>
           <li>Fan Cleaning</li>
           <li>Air Vent Cleaning</li>
-          <li>Temperature Check</li>
         </ul>
         <div class="service-card__duration">⏱ 30–40 Minutes</div>
         <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
@@ -112,8 +117,7 @@
           <li>External Cleaning</li>
           <li>Internal Cleaning</li>
           <li>Fan Cleaning</li>
-          <li>Basic Software Optimization</li>
-          <li>Performance Check</li>
+          <li>Thermal Pasting</li>
         </ul>
         <div class="service-card__duration">⏱ 45–60 Minutes</div>
         <a href="#booking" class="btn btn--primary btn--block">Book Now</a>
@@ -266,23 +270,17 @@
       <a href="#">Terms</a>
       <a href="#contact">Contact</a>
     </div>
-    </div>
   </div>
   <div class="footer__bottom">
     <div class="container">© 2026 LaptopCare. All rights reserved.</div>
   </div>
 </footer>
+
 <a href="#booking" class="floating-book-btn">
-
-📅
-
-<span>Book Now</span>
-
+  <span class="floating-icon">📅</span>
+  <span>Book Now</span>
 </a>
-<a href="#booking" class="floating-book-btn">
-    <span class="floating-icon">📅</span>
-    <span>Book Now</span>
-</a>
-<script src="script.js"></script>
+
+<script src="Frontend/Js/script.js"></script>
 </body>
 </html>

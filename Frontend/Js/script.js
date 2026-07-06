@@ -38,10 +38,20 @@ function onScrollSpy(){
 window.addEventListener('scroll', onScrollSpy);
 onScrollSpy();
 
-// Sticky navbar shadow on scroll
+// Sticky navbar shadow + scroll-progress bar
 const navbar = document.getElementById('navbar');
-window.addEventListener('scroll', () => {
-  navbar.style.boxShadow = window.pageYOffset > 8
+const navProgress = document.getElementById('navProgress');
+
+function onNavbarScroll(){
+  const scrollY = window.pageYOffset;
+
+  navbar.style.boxShadow = scrollY > 8
     ? '0 4px 16px rgba(17,24,39,0.06)'
     : 'none';
-});
+
+  const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = scrollable > 0 ? scrollY / scrollable : 0;
+  navProgress.style.backgroundPosition = `${progress * 100}% 0`;
+}
+window.addEventListener('scroll', onNavbarScroll);
+onNavbarScroll();
