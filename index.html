@@ -103,6 +103,7 @@
           <li>Internal Dust Removal</li>
           <li>Fan Cleaning</li>
           <li>Air Vent Cleaning</li>
+          <li>Temperature Check</li>
         </ul>
         <div class="service-card__duration">⏱ 30–40 Minutes</div>
         <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
@@ -117,7 +118,8 @@
           <li>External Cleaning</li>
           <li>Internal Cleaning</li>
           <li>Fan Cleaning</li>
-          <li>Thermal Pasting</li>
+          <li>Basic Software Optimization</li>
+          <li>Performance Check</li>
         </ul>
         <div class="service-card__duration">⏱ 45–60 Minutes</div>
         <a href="#booking" class="btn btn--primary btn--block">Book Now</a>
@@ -280,6 +282,99 @@
   <span class="floating-icon">📅</span>
   <span>Book Now</span>
 </a>
+
+<!-- ========== BOOKING MODAL ========== -->
+<div class="booking-overlay" id="bookingOverlay" aria-hidden="true">
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
+    <button class="booking-modal__close" id="bookingClose" aria-label="Close booking form">&times;</button>
+
+    <!-- Form view -->
+    <div class="booking-modal__body" id="bookingFormView">
+      <h3 id="bookingTitle" class="booking-modal__title">Book Your Service</h3>
+      <p class="booking-modal__subtitle">Fill in your details and we'll confirm your slot shortly.</p>
+
+      <form class="booking-form" id="bookingForm">
+        <div class="form-field">
+          <label for="bkName">Full Name</label>
+          <input type="text" id="bkName" name="name" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="bkPhone">Phone Number</label>
+            <input type="tel" id="bkPhone" name="phone" placeholder="+91 98765 43210" required>
+          </div>
+          <div class="form-field">
+            <label for="bkEmail">Email (optional)</label>
+            <input type="email" id="bkEmail" name="email" placeholder="you@example.com">
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="bkAddress">Address</label>
+          <input type="text" id="bkAddress" name="address" placeholder="House no., street, area" required>
+        </div>
+
+        <div class="form-field">
+          <label>Select a Plan</label>
+          <div class="plan-select" id="bkPlanSelect">
+            <label class="plan-option">
+              <input type="radio" name="service" value="External Cleaning - ₹200" required>
+              <span class="plan-option__card">
+                <span class="plan-option__icon">🧴</span>
+                <span class="plan-option__name">External Cleaning</span>
+                <span class="plan-option__price">₹200</span>
+                <span class="plan-option__duration">15–20 min</span>
+              </span>
+            </label>
+
+            <label class="plan-option">
+              <input type="radio" name="service" value="Internal Cleaning - ₹500" required>
+              <span class="plan-option__card">
+                <span class="plan-option__icon">⚙️</span>
+                <span class="plan-option__name">Internal Cleaning</span>
+                <span class="plan-option__price">₹500</span>
+                <span class="plan-option__duration">30–40 min</span>
+              </span>
+            </label>
+
+            <label class="plan-option">
+              <input type="radio" name="service" value="Complete Laptop Care - ₹600" required>
+              <span class="plan-option__card">
+                <span class="plan-badge">⭐ Popular</span>
+                <span class="plan-option__icon">🛡️</span>
+                <span class="plan-option__name">Complete Laptop Care</span>
+                <span class="plan-option__price">₹600</span>
+                <span class="plan-option__duration">45–60 min</span>
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-field">
+            <label for="bkDate">Preferred Date</label>
+            <input type="date" id="bkDate" name="date" required>
+          </div>
+          <div class="form-field">
+            <label for="bkTime">Preferred Time</label>
+            <input type="time" id="bkTime" name="time" required>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block" id="bookingSubmit">Confirm Booking</button>
+      </form>
+    </div>
+
+    <!-- Success view -->
+    <div class="booking-modal__success" id="bookingSuccessView" hidden>
+      <div class="booking-modal__success-icon">✓</div>
+      <h3 class="booking-modal__title">Booking Request Sent!</h3>
+      <p class="booking-modal__subtitle">We've received your details and will confirm your slot shortly over phone or WhatsApp.</p>
+      <button type="button" class="btn btn--primary" id="bookingDone">Done</button>
+    </div>
+  </div>
+</div>
 
 <script src="Frontend/Js/script.js"></script>
 </body>

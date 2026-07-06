@@ -51,7 +51,134 @@ function onNavbarScroll(){
 
   const scrollable = document.documentElement.scrollHeight - window.innerHeight;
   const progress = scrollable > 0 ? scrollY / scrollable : 0;
-  navProgress.style.backgroundPosition = `${progress * 100}% 0`;
+  navProgress.style.transform = `scaleX(${progress})`;
 }
 window.addEventListener('scroll', onNavbarScroll);
 onNavbarScroll();
+
+// ===================================================
+// Booking Modal
+// ===================================================
+//
+// Connected to your Google Form. Every submission from this modal
+// is posted straight to Google's response endpoint in the background,
+// so the visitor only ever sees this custom modal — never the real
+// Google Form — while every booking still lands in your linked
+// Google Sheet automatically.
+const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSchKrlyQojb-q-eKMW2xOqzfB0EOLIOfBIEAUie0fQZCCZmcw/formResponse';
+const GOOGLE_FORM_FIELDS = {
+  name:    'entry.1500079392',
+  phone:   'entry.16990197',
+  email:   'entry.1340431861',
+  address: 'entry.519450992',
+  service: 'entry.142576893',
+  // Your form splits Date and Time into separate year/month/day and
+  // hour/minute sub-fields rather than one field each — handled below.
+  date_year:   'entry.2138604486_year',
+  date_month:  'entry.2138604486_month',
+  date_day:    'entry.2138604486_day',
+  time_hour:   'entry.450439780_hour',
+  time_minute: 'entry.450439780_minute',
+};
+
+const bookingOverlay = document.getElementById('bookingOverlay');
+const bookingClose = document.getElementById('bookingClose');
+const bookingForm = document.getElementById('bookingForm');
+const bookingSubmit = document.getElementById('bookingSubmit');
+const bookingFormView = document.getElementById('bookingFormView');
+const bookingSuccessView = document.getElementById('bookingSuccessView');
+const bookingDone = document.getElementById('bookingDone');
+
+function openBookingModal(){
+  bookingOverlay.classList.add('is-open');
+  bookingOverlay.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBookingModal(){
+  bookingOverlay.classList.remove('is-open');
+  bookingOverlay.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+}
+
+function resetBookingModal(){
+  bookingForm.reset();
+  bookingForm.hidden = false;
+  bookingFormView.hidden = false;
+  bookingSuccessView.hidden = true;
+}
+
+// Every "Book Now" / "Book Service" link on the page opens the modal
+// instead of jumping to a page anchor.
+document.querySelectorAll('a[href="#booking"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    openBookingModal();
+  });
+});
+
+bookingClose.addEventListener('click', closeBookingModal);
+bookingDone.addEventListener('click', () => {
+  closeBookingModal();
+  resetBookingModal();
+});
+
+// Click outside the modal card closes it
+bookingOverlay.addEventListener('click', (e) => {
+  if (e.target === bookingOverlay) closeBookingModal();
+});
+
+// Escape key closes it
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape' && bookingOverlay.classList.contains('is-open')){
+    closeBookingModal();
+  }
+});
+
+// Submit the form data straight to the Google Form's response
+// endpoint in the background, so the visitor never sees the real
+// Google Form — only this custom-designed modal.
+bookingForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+
+  const selectedPlan = bookingForm.querySelector('input[name="service"]:checked');
+  const [year, month, day] = document.getElementById('bkDate').value.split('-');
+  const [hour, minute] = document.getElementById('bkTime').value.split(':');
+
+  const values = {
+    name: document.getElementById('bkName').value,
+    phone: document.getElementById('bkPhone').value,
+    email: document.getElementById('bkEmail').value,
+    address: document.getElementById('bkAddress').value,
+    service: selectedPlan ? selectedPlan.value : '',
+    date_year: year || '',
+    date_month: month || '',
+    date_day: day || '',
+    time_hour: hour || '',
+    time_minute: minute || '',
+  };
+
+  const formData = new FormData();
+  Object.keys(GOOGLE_FORM_FIELDS).forEach(key => {
+    formData.append(GOOGLE_FORM_FIELDS[key], values[key] || '');
+  });
+
+  bookingSubmit.disabled = true;
+  bookingSubmit.textContent = 'Sending…';
+
+  // mode: 'no-cors' is required for Google Forms' endpoint — the
+  // response is opaque (unreadable) either way, so we just assume
+  // success once the request has been sent.
+  fetch(GOOGLE_FORM_ACTION, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: formData,
+  })
+    .catch(() => { /* opaque response — ignore network-level errors from no-cors */ })
+    .finally(() => {
+      bookingSubmit.disabled = false;
+      bookingSubmit.textContent = 'Confirm Booking';
+      bookingFormView.hidden = true;
+      bookingSuccessView.hidden = false;
+    });
+});
