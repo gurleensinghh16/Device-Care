@@ -87,6 +87,36 @@ const bookingSubmit = document.getElementById('bookingSubmit');
 const bookingFormView = document.getElementById('bookingFormView');
 const bookingSuccessView = document.getElementById('bookingSuccessView');
 const bookingDone = document.getElementById('bookingDone');
+// ============================================
+// Prevent selecting past dates
+// ============================================
+
+const dateInput = document.getElementById('bkDate');
+const timeInput = document.getElementById('bkTime');
+
+const today = new Date().toISOString().split('T')[0];
+dateInput.min = today;
+
+dateInput.addEventListener('change', () => {
+
+    const today = new Date().toISOString().split('T')[0];
+
+    if (dateInput.value === today) {
+
+        const now = new Date();
+
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+
+        timeInput.min = `${hours}:${minutes}`;
+
+    } else {
+
+        timeInput.min = "";
+
+    }
+
+});
 
 function openBookingModal(){
   bookingOverlay.classList.add('is-open');
@@ -139,6 +169,22 @@ document.addEventListener('keydown', (e) => {
 // Google Form — only this custom-designed modal.
 bookingForm.addEventListener('submit', (e) => {
   e.preventDefault();
+  // ============================================
+// Validate selected date and time
+// ============================================
+
+const selectedDate = dateInput.value;
+const selectedTime = timeInput.value;
+
+const selectedDateTime = new Date(`${selectedDate}T${selectedTime}`);
+const currentDateTime = new Date();
+
+if (selectedDateTime < currentDateTime) {
+
+    alert("Please select a future date and time.");
+
+    return;
+}
 
   const selectedPlan = bookingForm.querySelector('input[name="service"]:checked');
   const [year, month, day] = document.getElementById('bkDate').value.split('-');
