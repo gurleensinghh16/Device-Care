@@ -1,378 +1,562 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaptopCare — Professional Laptop Care At Your Doorstep</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="Frontend/css/style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LaptopCare — Professional Laptop Care At Your Doorstep</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="Frontend/css/style.css" />
+  </head>
 
-<body>
+  <body>
+    <!-- ========== NAVBAR ========== -->
+    <header class="navbar" id="navbar">
+      <div class="container navbar__inner">
+        <!-- Logo -->
+        <a href="#home" class="logo" data-reveal="left">
+          <img
+            src="Frontend/Assets/imagecopy.png"
+            alt="LaptopGuy Logo"
+            class="imgg"
+          />
+          <span class="logo-text">LaptopGuy</span>
+        </a>
 
-<!-- ========== NAVBAR ========== -->
-<header class="navbar" id="navbar">
-  <div class="container navbar__inner">
+        <!-- Navigation -->
+        <nav class="nav-links" id="navLinks">
+          <a href="#home" class="nav-link active">Home</a>
+          <a href="#services" class="nav-link">Services &amp; Pricing</a>
+          <a href="#how-it-works" class="nav-link">How It Works</a>
+          <a href="#why-us" class="nav-link">Why Choose Us</a>
+          <a href="#service-areas" class="nav-link">Service Areas</a>
+          <a href="#contact" class="nav-link">Contact</a>
+        </nav>
 
-    <!-- Logo -->
-    <a href="#home" class="logo" data-reveal="left">
-      <img
-        src="Frontend/Assets/imagecopy.png"
-        alt="LaptopGuy Logo"
-        class="imgg"
-      >
-      <span class="logo-text">LaptopGuy</span>
+        <!-- Right Side -->
+        <div class="navbar__actions">
+          <a href="#booking" class="btn btn--primary btn--sm"> Book Now </a>
+
+          <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+
+      <div class="navbar__progress" id="navProgress"></div>
+    </header>
+    <!-- ========== HERO ========== -->
+    <section class="hero" id="home">
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title" data-reveal="left">
+            Professional Laptop Care,
+            <span class="text-gradient">At Your Doorstep</span>
+          </h1>
+          <p class="hero__subtitle" data-reveal="right">
+            Book trusted technicians for laptop cleaning, servicing and software
+            support — without leaving your home.
+          </p>
+          <div class="hero__cta">
+            <a href="#booking" class="btn btn--primary btn--lg btn--hero-cta"
+              >Book Service</a
+            >
+            <a href="#services" class="btn btn--secondary-outline btn--lg"
+              >View Services &amp; Pricing</a
+            >
+          </div>
+
+          <ul class="trust-badges" data-reveal="up">
+            <li><span class="tick">✓</span> Verified Technicians</li>
+            <li><span class="tick">✓</span> Doorstep Service</li>
+            <li><span class="tick">✓</span> Affordable Pricing</li>
+            <li><span class="tick">✓</span> Transparent Pricing</li>
+          </ul>
+        </div>
+        <div class="hero__visual">
+          <img
+            src="Frontend/Assets/image.png"
+            alt="Laptop technician servicing a laptop"
+            class="hero-image"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SERVICES & PRICING ========== -->
+    <section class="section" id="services">
+      <div class="container">
+        <p class="section-eyebrow">Services &amp; Pricing</p>
+        <h2 class="section-title" data-reveal="up">
+          Our Services &amp; Pricing
+        </h2>
+        <p class="section-subtitle">
+          Choose the service that best fits your laptop. Simple pricing with no
+          hidden charges.
+        </p>
+
+        <div class="service-grid">
+          <div class="service-card">
+            <div class="service-card__icon">🧴</div>
+            <h3>External Cleaning</h3>
+            <div class="service-card__price">₹200</div>
+            <ul class="service-card__list">
+              <li>Screen Cleaning</li>
+              <li>Keyboard Cleaning</li>
+              <li>Body Cleaning</li>
+              <li>Port Cleaning</li>
+            </ul>
+            <div class="service-card__duration">⏱ 15–20 Minutes</div>
+            <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
+          </div>
+
+          <div class="service-card">
+            <div class="service-card__icon">⚙️</div>
+            <h3>Internal Cleaning</h3>
+            <div class="service-card__price">₹500</div>
+            <ul class="service-card__list">
+              <li>Internal Dust Removal</li>
+              <li>Fan Cleaning</li>
+              <li>Air Vent Cleaning</li>
+              <li>Temperature Check</li>
+            </ul>
+            <div class="service-card__duration">⏱ 30–40 Minutes</div>
+            <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
+          </div>
+
+          <div class="service-card service-card--popular">
+            <span class="badge-popular">⭐ Most Popular</span>
+            <div class="service-card__icon">🛡️</div>
+            <h3>Complete Laptop Care</h3>
+            <div class="service-card__price">₹600</div>
+            <ul class="service-card__list">
+              <li>External Cleaning</li>
+              <li>Internal Cleaning</li>
+              <li>Fan Cleaning</li>
+              <li>Basic Software Optimization</li>
+              <li>Performance Check</li>
+            </ul>
+            <div class="service-card__duration">⏱ 45–60 Minutes</div>
+            <a href="#booking" class="btn btn--primary btn--block">Book Now</a>
+          </div>
+        </div>
+
+        <div class="additional-services">
+          <h3 class="additional-services__title">Additional Services</h3>
+
+          <div class="orbit-wrap">
+            <div class="orbit-center">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  x="3"
+                  y="4"
+                  width="18"
+                  height="12"
+                  rx="1.5"
+                  fill="#2563EB"
+                />
+                <rect
+                  x="4.5"
+                  y="5.5"
+                  width="15"
+                  height="9"
+                  rx="0.5"
+                  fill="#93C5FD"
+                />
+                <path d="M1 19h22l-1.5 2h-19L1 19z" fill="#1D4ED8" />
+              </svg>
+            </div>
+
+            <div class="orbit-item" style="--angle: 0deg">
+              <span class="chip">Windows Installation</span>
+            </div>
+            <div class="orbit-item" style="--angle: 40deg">
+              <span class="chip">Virus Removal</span>
+            </div>
+            <div class="orbit-item" style="--angle: 80deg">
+              <span class="chip">SSD Installation</span>
+            </div>
+            <div class="orbit-item" style="--angle: 120deg">
+              <span class="chip">RAM Installation</span>
+            </div>
+            <div class="orbit-item" style="--angle: 160deg">
+              <span class="chip">Thermal Paste Replacement</span>
+            </div>
+            <div class="orbit-item" style="--angle: 200deg">
+              <span class="chip">Data Backup</span>
+            </div>
+            <div class="orbit-item" style="--angle: 240deg">
+              <span class="chip">Software Installation</span>
+            </div>
+            <div class="orbit-item" style="--angle: 280deg">
+              <span class="chip">Keyboard Replacement</span>
+            </div>
+            <div class="orbit-item" style="--angle: 320deg">
+              <span class="chip">Battery Replacement</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="chip-grid chip-grid--mobile-fallback">
+          <span class="chip">Windows Installation</span>
+          <span class="chip">Virus Removal</span>
+          <span class="chip">SSD Installation</span>
+          <span class="chip">RAM Installation</span>
+          <span class="chip">Thermal Paste Replacement</span>
+          <span class="chip">Data Backup</span>
+          <span class="chip">Software Installation</span>
+          <span class="chip">Keyboard Replacement</span>
+          <span class="chip">Battery Replacement</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="section section--tint" id="how-it-works">
+      <div class="container">
+        <p class="section-eyebrow">How It Works</p>
+        <h2 class="section-title" data-reveal="up">
+          From booking to a spotless laptop, in six steps
+        </h2>
+
+        <div class="timeline">
+          <div class="timeline__step">
+            <div class="timeline__number">01</div>
+            <h4>Choose Service</h4>
+          </div>
+          <div class="timeline__step">
+            <div class="timeline__number">02</div>
+            <h4>Select Date &amp; Time</h4>
+          </div>
+          <div class="timeline__step">
+            <div class="timeline__number">03</div>
+            <h4>Enter Address</h4>
+          </div>
+          <div class="timeline__step">
+            <div class="timeline__number">04</div>
+            <h4>Technician Visits</h4>
+          </div>
+          <div class="timeline__step">
+            <div class="timeline__number">05</div>
+            <h4>Service Completed</h4>
+          </div>
+          <div class="timeline__step">
+            <div class="timeline__number">06</div>
+            <h4>Rate Your Experience</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHY CHOOSE US ========== -->
+    <section class="section" id="why-us">
+      <div class="container">
+        <p class="section-eyebrow">Why Choose Us</p>
+        <h2 class="section-title" data-reveal="up">
+          Care that shows up, and shows respect
+        </h2>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <div class="feature-card__icon">✅</div>
+            <h4>Verified Technicians</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🏠</div>
+            <h4>Doorstep Service</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">💰</div>
+            <h4>Affordable Pricing</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🤝</div>
+            <h4>Professional Behaviour</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🧾</div>
+            <h4>No Hidden Charges</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🔒</div>
+            <h4>Safe Handling</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">⚡</div>
+            <h4>Quick Booking</h4>
+          </div>
+          <div class="feature-card">
+            <div class="feature-card__icon">🏆</div>
+            <h4>Quality Guarantee</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONTACT ========== -->
+    <section class="section section--tint" id="contact">
+      <div class="container">
+        <p class="section-eyebrow">Contact</p>
+        <h2 class="section-title" data-reveal="up">Talk to us</h2>
+
+        <div class="contact-grid">
+          <div class="contact-card">
+            <div class="contact-card__icon">📞</div>
+            <h4>Call Us</h4>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">💬</div>
+            <h4>WhatsApp</h4>
+            <p>+91 98765 43210</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">✉️</div>
+            <h4>Email</h4>
+            <p>support@laptopcare.in</p>
+          </div>
+          <div class="contact-card">
+            <div class="contact-card__icon">🕒</div>
+            <h4>Business Hours</h4>
+            <p>Mon–Sun, 8 AM – 9 PM</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <div class="brand brand--footer">
+            <span class="brand__mark">
+              <svg
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 5h16v10H4V5z"
+                  stroke="white"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M2 17h20l-1.5 3h-17L2 17z"
+                  stroke="white"
+                  stroke-width="1.8"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 8.5l1.6 1.6L14 6.5"
+                  stroke="#10B981"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </span>
+            LaptopCare
+          </div>
+          <p>
+            Professional laptop cleaning, servicing and software support —
+            delivered to your doorstep.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <h5>Quick Links</h5>
+          <a href="#services">Services &amp; Pricing</a>
+          <a href="#how-it-works">How It Works</a>
+          <a href="#why-us">Why Choose Us</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer__col">
+          <h5>Legal</h5>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="container">© 2026 LaptopCare. All rights reserved.</div>
+      </div>
+    </footer>
+
+    <a href="#booking" class="floating-book-btn">
+      <span class="floating-icon">📅</span>
+      <span>Book Now</span>
     </a>
 
-    <!-- Navigation -->
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="nav-link active">Home</a>
-      <a href="#services" class="nav-link">Services &amp; Pricing</a>
-      <a href="#how-it-works" class="nav-link">How It Works</a>
-      <a href="#why-us" class="nav-link">Why Choose Us</a>
-      <a href="#service-areas" class="nav-link">Service Areas</a>
-      <a href="#contact" class="nav-link">Contact</a>
-    </nav>
+    <!-- ========== BOOKING MODAL ========== -->
+    <div class="booking-overlay" id="bookingOverlay" aria-hidden="true">
+      <div
+        class="booking-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="bookingTitle"
+      >
+        <button
+          class="booking-modal__close"
+          id="bookingClose"
+          aria-label="Close booking form"
+        >
+          &times;
+        </button>
 
-    <!-- Right Side -->
-    <div class="navbar__actions">
-      <a href="#booking" class="btn btn--primary btn--sm">
-        Book Now
-      </a>
+        <!-- Form view -->
+        <div class="booking-modal__body" id="bookingFormView">
+          <h3 id="bookingTitle" class="booking-modal__title">
+            Book Your Service
+          </h3>
+          <p class="booking-modal__subtitle">
+            Fill in your details and we'll confirm your slot shortly.
+          </p>
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-    </div>
+          <form class="booking-form" id="bookingForm">
+            <div class="form-field">
+              <label for="bkName">Full Name</label>
+              <input
+                type="text"
+                id="bkName"
+                name="name"
+                placeholder="Your full name"
+                required
+              />
+            </div>
 
-  </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="bkPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="bkPhone"
+                  name="phone"
+                  placeholder="+91 98765 43210"
+                  required
+                />
+              </div>
+              <div class="form-field">
+                <label for="bkEmail">Email </label>
+                <input
+                  type="email"
+                  id="bkEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                />
+              </div>
+            </div>
 
-  <div class="navbar__progress" id="navProgress"></div>
-</header>
-<!-- ========== HERO ========== -->
-<section class="hero" id="home">
-  <div class="container hero__inner">
-    <div class="hero__copy">
-      <h1 class="hero__title" data-reveal="left">Professional Laptop Care, ...</h1>
-      <p class="hero__subtitle" data-reveal="right">Book trusted technicians ...</p>
+            <div class="form-field">
+              <label for="bkAddress">Address</label>
+              <input
+                type="text"
+                id="bkAddress"
+                name="address"
+                placeholder="House no., street, area"
+                required
+              />
+            </div>
 
-      <div class="hero__cta">
-        <a href="#booking" class="btn btn--primary btn--lg btn--hero-cta">Book Service</a>
-        <a href="#services" class="btn btn--secondary-outline btn--lg">View Services &amp; Pricing</a>
-      </div>
+            <div class="form-field">
+              <label>Select a Plan</label>
+              <div class="plan-select" id="bkPlanSelect">
+                <label class="plan-option">
+                  <input
+                    type="radio"
+                    name="service"
+                    value="External Cleaning"
+                    required
+                  />
+                  <span class="plan-option__card">
+                    <span class="plan-option__icon">🧴</span>
+                    <span class="plan-option__name">External Cleaning</span>
+                    <span class="plan-option__price">₹200</span>
+                    <span class="plan-option__duration">15–20 min</span>
+                  </span>
+                </label>
 
-      <ul class="trust-badges"> data-reveal="up">
-        <li><span class="tick">✓</span> Verified Technicians</li>
-        <li><span class="tick">✓</span> Doorstep Service</li>
-        <li><span class="tick">✓</span> Affordable Pricing</li>
-        <li><span class="tick">✓</span> Transparent Pricing</li>
-      </ul>
-    </div>
-    <div class="hero__visual">
-  <img
-        src="Frontend/Assets/image.png"
-        alt="Laptop technician servicing a laptop"
-        class="hero-image"
-    >
-    </div>
-  </div>
-</section>
+                <label class="plan-option">
+                  <input
+                    type="radio"
+                    name="service"
+                    value="Internal Cleaning"
+                    required
+                  />
+                  <span class="plan-option__card">
+                    <span class="plan-option__icon">⚙️</span>
+                    <span class="plan-option__name">Internal Cleaning</span>
+                    <span class="plan-option__price">₹500</span>
+                    <span class="plan-option__duration">30–40 min</span>
+                  </span>
+                </label>
 
-<!-- ========== SERVICES & PRICING ========== -->
-<section class="section" id="services">
-  <div class="container">
-    <p class="section-eyebrow">Services &amp; Pricing</p>
-    <h2 class="section-title" data-reveal="up" >Our Services &amp; Pricing</h2>
-    <p class="section-subtitle">Choose the service that best fits your laptop. Simple pricing with no hidden charges.</p>
+                <label class="plan-option">
+                  <input
+                    type="radio"
+                    name="service"
+                    value="Complete Laptop Care"
+                    required
+                  />
+                  <span class="plan-option__card">
+                    <span class="plan-badge">⭐ Popular</span>
+                    <span class="plan-option__icon">🛡️</span>
+                    <span class="plan-option__name">Complete Laptop Care</span>
+                    <span class="plan-option__price">₹600</span>
+                    <span class="plan-option__duration">45–60 min</span>
+                  </span>
+                </label>
+              </div>
+            </div>
 
-    <div class="service-grid">
-      <div class="service-card">
-        <div class="service-card__icon">🧴</div>
-        <h3>External Cleaning</h3>
-        <div class="service-card__price">₹200</div>
-        <ul class="service-card__list">
-          <li>Screen Cleaning</li>
-          <li>Keyboard Cleaning</li>
-          <li>Body Cleaning</li>
-          <li>Port Cleaning</li>
-        </ul>
-        <div class="service-card__duration">⏱ 15–20 Minutes</div>
-        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-      </div>
+            <div class="form-row">
+              <div class="form-field">
+                <label for="bkDate">Preferred Date</label>
+                <input type="date" id="bkDate" name="date" required />
+              </div>
+              <div class="form-field">
+                <label for="bkTime">Preferred Time</label>
+                <input type="time" id="bkTime" name="time" required />
+              </div>
+            </div>
 
-      <div class="service-card">
-        <div class="service-card__icon">⚙️</div>
-        <h3>Internal Cleaning</h3>
-        <div class="service-card__price">₹500</div>
-        <ul class="service-card__list">
-          <li>Internal Dust Removal</li>
-          <li>Fan Cleaning</li>
-          <li>Air Vent Cleaning</li>
-          <li>Temperature Check</li>
-        </ul>
-        <div class="service-card__duration">⏱ 30–40 Minutes</div>
-        <a href="#booking" class="btn btn--outline btn--block">Book Now</a>
-      </div>
-
-      <div class="service-card service-card--popular">
-        <span class="badge-popular">⭐ Most Popular</span>
-        <div class="service-card__icon">🛡️</div>
-        <h3>Complete Laptop Care</h3>
-        <div class="service-card__price">₹600</div>
-        <ul class="service-card__list">
-          <li>External Cleaning</li>
-          <li>Internal Cleaning</li>
-          <li>Fan Cleaning</li>
-          <li>Basic Software Optimization</li>
-          <li>Performance Check</li>
-        </ul>
-        <div class="service-card__duration">⏱ 45–60 Minutes</div>
-        <a href="#booking" class="btn btn--primary btn--block">Book Now</a>
-      </div>
-    </div>
-
-    <div class="additional-services">
-      <h3 class="additional-services__title">Additional Services</h3>
-      <div class="chip-grid">
-        <span class="chip">Windows Installation</span>
-        <span class="chip">Virus Removal</span>
-        <span class="chip">SSD Installation</span>
-        <span class="chip">RAM Installation</span>
-        <span class="chip">Thermal Paste Replacement</span>
-        <span class="chip">Data Backup</span>
-        <span class="chip">Software Installation</span>
-        <span class="chip">Keyboard Replacement</span>
-        <span class="chip">Battery Replacement</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== HOW IT WORKS ========== -->
-<section class="section section--tint" id="how-it-works">
-  <div class="container">
-    <p class="section-eyebrow">How It Works</p>
-    <h2 class="section-title">From booking to a spotless laptop, in six steps</h2>
-
-    <div class="timeline">
-      <div class="timeline__step">
-        <div class="timeline__number">01</div>
-        <h4>Choose Service</h4>
-      </div>
-      <div class="timeline__step">
-        <div class="timeline__number">02</div>
-        <h4>Select Date &amp; Time</h4>
-      </div>
-      <div class="timeline__step">
-        <div class="timeline__number">03</div>
-        <h4>Enter Address</h4>
-      </div>
-      <div class="timeline__step">
-        <div class="timeline__number">04</div>
-        <h4>Technician Visits</h4>
-      </div>
-      <div class="timeline__step">
-        <div class="timeline__number">05</div>
-        <h4>Service Completed</h4>
-      </div>
-      <div class="timeline__step">
-        <div class="timeline__number">06</div>
-        <h4>Rate Your Experience</h4>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== WHY CHOOSE US ========== -->
-<section class="section" id="why-us">
-  <div class="container">
-    <p class="section-eyebrow">Why Choose Us</p>
-    <h2 class="section-title">Care that shows up, and shows respect</h2>
-
-    <div class="feature-grid">
-      <div class="feature-card"><div class="feature-card__icon">✅</div><h4>Verified Technicians</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">🏠</div><h4>Doorstep Service</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">💰</div><h4>Affordable Pricing</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">🤝</div><h4>Professional Behaviour</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">🧾</div><h4>No Hidden Charges</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">🔒</div><h4>Safe Handling</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">⚡</div><h4>Quick Booking</h4></div>
-      <div class="feature-card"><div class="feature-card__icon">🏆</div><h4>Quality Guarantee</h4></div>
-    </div>
-  </div>
-</section>
-
-
-
-<!-- ========== CONTACT ========== -->
-<section class="section section--tint" id="contact">
-  <div class="container">
-    <p class="section-eyebrow">Contact</p>
-    <h2 class="section-title">Talk to us</h2>
-
-    <div class="contact-grid">
-      <div class="contact-card">
-        <div class="contact-card__icon">📞</div>
-        <h4>Call Us</h4>
-        <p>+91 98765 43210</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card__icon">💬</div>
-        <h4>WhatsApp</h4>
-        <p>+91 98765 43210</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card__icon">✉️</div>
-        <h4>Email</h4>
-        <p>support@laptopcare.in</p>
-      </div>
-      <div class="contact-card">
-        <div class="contact-card__icon">🕒</div>
-        <h4>Business Hours</h4>
-        <p>Mon–Sun, 8 AM – 9 PM</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ========== FOOTER ========== -->
-<footer class="footer">
-  <div class="container footer__inner">
-    <div class="footer__brand">
-      <div class="brand brand--footer">
-        <span class="brand__mark">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M4 5h16v10H4V5z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-            <path d="M2 17h20l-1.5 3h-17L2 17z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-            <path d="M9 8.5l1.6 1.6L14 6.5" stroke="#10B981" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </span>
-        LaptopCare
-      </div>
-      <p>Professional laptop cleaning, servicing and software support — delivered to your doorstep.</p>
-    </div>
-
-    <div class="footer__col">
-      <h5>Quick Links</h5>
-      <a href="#services">Services &amp; Pricing</a>
-      <a href="#how-it-works">How It Works</a>
-      <a href="#why-us">Why Choose Us</a>
-      <a href="#contact">Contact</a>
-    </div>
-
-    <div class="footer__col">
-      <h5>Legal</h5>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </div>
-  <div class="footer__bottom">
-    <div class="container">© 2026 LaptopCare. All rights reserved.</div>
-  </div>
-</footer>
-
-<a href="#booking" class="floating-book-btn">
-  <span class="floating-icon">📅</span>
-  <span>Book Now</span>
-</a>
-
-<!-- ========== BOOKING MODAL ========== -->
-<div class="booking-overlay" id="bookingOverlay" aria-hidden="true">
-  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
-    <button class="booking-modal__close" id="bookingClose" aria-label="Close booking form">&times;</button>
-
-    <!-- Form view -->
-    <div class="booking-modal__body" id="bookingFormView">
-      <h3 id="bookingTitle" class="booking-modal__title">Book Your Service</h3>
-      <p class="booking-modal__subtitle">Fill in your details and we'll confirm your slot shortly.</p>
-
-      <form class="booking-form" id="bookingForm">
-        <div class="form-field">
-          <label for="bkName">Full Name</label>
-          <input type="text" id="bkName" name="name" placeholder="Your full name" required>
+            <button
+              type="submit"
+              class="btn btn--primary btn--block"
+              id="bookingSubmit"
+            >
+              Confirm Booking
+            </button>
+          </form>
         </div>
 
-        <div class="form-row">
-          <div class="form-field">
-            <label for="bkPhone">Phone Number</label>
-            <input type="tel" id="bkPhone" name="phone" placeholder="+91 98765 43210" required>
-          </div>
-          <div class="form-field">
-            <label for="bkEmail">Email (optional)</label>
-            <input type="email" id="bkEmail" name="email" placeholder="you@example.com">
-          </div>
+        <!-- Success view -->
+        <div class="booking-modal__success" id="bookingSuccessView" hidden>
+          <div class="booking-modal__success-icon">✓</div>
+          <h3 class="booking-modal__title">Booking Request Sent!</h3>
+          <p class="booking-modal__subtitle">
+            We've received your details and will confirm your slot shortly over
+            phone or WhatsApp.
+          </p>
+          <button type="button" class="btn btn--primary" id="bookingDone">
+            Done
+          </button>
         </div>
-
-        <div class="form-field">
-          <label for="bkAddress">Address</label>
-          <input type="text" id="bkAddress" name="address" placeholder="House no., street, area" required>
-        </div>
-
-        <div class="form-field">
-          <label>Select a Plan</label>
-          <div class="plan-select" id="bkPlanSelect">
-            <label class="plan-option">
-              <input type="radio" name="service" value="External Cleaning" required>
-              <span class="plan-option__card">
-                <span class="plan-option__icon">🧴</span>
-                <span class="plan-option__name">External Cleaning</span>
-                <span class="plan-option__price">₹200</span>
-                <span class="plan-option__duration">15–20 min</span>
-              </span>
-            </label>
-
-            <label class="plan-option">
-              <input type="radio" name="service" value="Internal Cleaning" required>
-              <span class="plan-option__card">
-                <span class="plan-option__icon">⚙️</span>
-                <span class="plan-option__name">Internal Cleaning</span>
-                <span class="plan-option__price">₹500</span>
-                <span class="plan-option__duration">30–40 min</span>
-              </span>
-            </label>
-
-            <label class="plan-option">
-              <input type="radio" name="service" value="Complete Laptop Care" required>
-              <span class="plan-option__card">
-                <span class="plan-badge">⭐ Popular</span>
-                <span class="plan-option__icon">🛡️</span>
-                <span class="plan-option__name">Complete Laptop Care</span>
-                <span class="plan-option__price">₹600</span>
-                <span class="plan-option__duration">45–60 min</span>
-              </span>
-            </label>
-          </div>
-        </div>
-
-        <div class="form-row">
-          <div class="form-field">
-            <label for="bkDate">Preferred Date</label>
-            <input type="date" id="bkDate" name="date" required>
-          </div>
-          <div class="form-field">
-            <label for="bkTime">Preferred Time</label>
-            <input type="time" id="bkTime" name="time" required>
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn--primary btn--block" id="bookingSubmit">Confirm Booking</button>
-      </form>
+      </div>
     </div>
 
-    <!-- Success view -->
-    <div class="booking-modal__success" id="bookingSuccessView" hidden>
-      <div class="booking-modal__success-icon">✓</div>
-      <h3 class="booking-modal__title">Booking Request Sent!</h3>
-      <p class="booking-modal__subtitle">We've received your details and will confirm your slot shortly over phone or WhatsApp.</p>
-      <button type="button" class="btn btn--primary" id="bookingDone">Done</button>
-    </div>
-  </div>
-</div>
-
-<script src="Frontend/Js/script.js"></script>
-</body>
+    <script src="Frontend/Js/script.js"></script>
+  </body>
 </html>
