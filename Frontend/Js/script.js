@@ -187,12 +187,11 @@ bookingForm.addEventListener('submit', (e) => {
 
 // Hero elements animate on page load with a slight delay (not scroll-triggered,
 // since they're visible immediately)
-document.querySelectorAll('.hero [data-reveal]').forEach((el, i) => {
+document.querySelectorAll('.navbar [data-reveal], .hero [data-reveal]').forEach((el, i) => {
   setTimeout(() => el.classList.add('is-visible'), 300 + i * 150);
 });
 
-// Everything else still animates on scroll
-const revealElements = document.querySelectorAll('[data-reveal]:not(.hero [data-reveal])');
+const revealElements = document.querySelectorAll('[data-reveal]:not(.navbar [data-reveal]):not(.hero [data-reveal])');
 
 const revealObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
