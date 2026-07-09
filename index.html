@@ -14,15 +14,20 @@
 <!-- ========== NAVBAR ========== -->
 <header class="navbar" id="navbar">
   <div class="container navbar__inner">
-    <a href="#home" class="brand">
-      <span class="brand__mark">
-        <img src="Frontend\Assets\Gemini_Generated_Image_pj8rv1pj8rv1pj8r.png" alt="Logo">
-      </span>
-      LaptopGuy
+
+    <!-- Logo -->
+    <a href="#home" class="logo">
+      <img
+        src="Frontend/Assets/imagecopy.png"
+        alt="LaptopGuy Logo"
+        class="imgg"
+      >
+      <span class="logo-text">LaptopGuy</span>
     </a>
 
+    <!-- Navigation -->
     <nav class="nav-links" id="navLinks">
-      <a href="#home" class="nav-link">Home</a>
+      <a href="#home" class="nav-link active">Home</a>
       <a href="#services" class="nav-link">Services &amp; Pricing</a>
       <a href="#how-it-works" class="nav-link">How It Works</a>
       <a href="#why-us" class="nav-link">Why Choose Us</a>
@@ -30,16 +35,23 @@
       <a href="#contact" class="nav-link">Contact</a>
     </nav>
 
+    <!-- Right Side -->
     <div class="navbar__actions">
-      <a href="#booking" class="btn btn--primary btn--sm">Book Now</a>
-      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
+      <a href="#booking" class="btn btn--primary btn--sm">
+        Book Now
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle Menu">
+        <span></span>
+        <span></span>
+        <span></span>
       </button>
     </div>
+
   </div>
+
   <div class="navbar__progress" id="navProgress"></div>
 </header>
-
 <!-- ========== HERO ========== -->
 <section class="hero" id="home">
   <div class="container hero__inner">
