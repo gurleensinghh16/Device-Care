@@ -65,19 +65,19 @@ onNavbarScroll();
 // so the visitor only ever sees this custom modal — never the real
 // Google Form — while every booking still lands in your linked
 // Google Sheet automatically.
-const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSchKrlyQojb-q-eKMW2xOqzfB0EOLIOfBIEAUie0fQZCCZmcw/formResponse';
+const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/d/e/1FAIpQLSeq_oxck7BQ-w11w9OaGAiDc7WIkGYRJjVae8AMjIsgnmkr5A/formResponse';
 const GOOGLE_FORM_FIELDS = {
-  name:    'entry.1500079392',
-  phone:   'entry.16990197',
-  email:   'entry.1340431861',
-  address: 'entry.519450992',
-  service: 'entry.142576893',
-  service_sentinel: 'entry.142576893_sentinel',
-  date_year:   'entry.2138604486_year',
-  date_month:  'entry.2138604486_month',
-  date_day:    'entry.2138604486_day',
-  time_hour:   'entry.450439780_hour',
-  time_minute: 'entry.450439780_minute',
+  name:    'entry.147115035',
+  phone:   'entry.1935412222',
+  email:   'entry.474584703',
+  address: 'entry.1793288027',
+  service: 'entry.343233456',
+  service_sentinel: 'entry.343233456_sentinel',
+  date_year:   'entry.1552333553_year',
+  date_month:  'entry.1552333553_month',
+  date_day:    'entry.1552333553_day',
+  time_hour:   'entry.1013509127_hour',
+  time_minute: 'entry.1013509127_minute',
 };
 
 const bookingOverlay = document.getElementById('bookingOverlay');
