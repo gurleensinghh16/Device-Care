@@ -186,8 +186,14 @@ if (selectedDateTime < currentDateTime) {
 
     return;
 }
+const selectedPlan = bookingForm.querySelector('input[name="service"]:checked');
+if (!selectedPlan) {
+  alert("Please select a plan before confirming your booking.");
+  return;
+}
 
-  const selectedPlan = bookingForm.querySelector('input[name="service"]:checked');
+
+  
   const [year, month, day] = document.getElementById('bkDate').value.split('-');
   const [hour, minute] = document.getElementById('bkTime').value.split(':');
 
