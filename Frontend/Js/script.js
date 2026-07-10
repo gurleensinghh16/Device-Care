@@ -73,6 +73,7 @@ const GOOGLE_FORM_FIELDS = {
   address: 'entry.1793288027',
   service: 'entry.343233456',
   service_sentinel: 'entry.343233456_sentinel',
+  addons:  'entry.1574616029',
   date_year:   'entry.1552333553_year',
   date_month:  'entry.1552333553_month',
   date_day:    'entry.1552333553_day',
@@ -191,17 +192,18 @@ if (selectedDateTime < currentDateTime) {
   const [hour, minute] = document.getElementById('bkTime').value.split(':');
 
   const values = {
-    name: document.getElementById('bkName').value,
-    phone: document.getElementById('bkPhone').value,
-    email: document.getElementById('bkEmail').value,
-    address: document.getElementById('bkAddress').value,
-    service: selectedPlan ? selectedPlan.value : '',
-    date_year: year || '',
-    date_month: month || '',
-    date_day: day || '',
-    time_hour: hour || '',
-    time_minute: minute || '',
-  };
+  name: document.getElementById('bkName').value,
+  phone: document.getElementById('bkPhone').value,
+  email: document.getElementById('bkEmail').value,
+  address: document.getElementById('bkAddress').value,
+  service: selectedPlan ? selectedPlan.value : '',
+  addons: document.getElementById('bkAddons').value,
+  date_year: year || '',
+  date_month: month || '',
+  date_day: day || '',
+  time_hour: hour || '',
+  time_minute: minute || '',
+};
 
   const formData = new FormData();
   Object.keys(GOOGLE_FORM_FIELDS).forEach(key => {
