@@ -791,15 +791,15 @@ input {
   animation: counterSpin 24s linear infinite;
 }
 
-.orbit-item:nth-child(2) .chip{ background: linear-gradient(135deg, #60a5fa, #2563eb); }
-.orbit-item:nth-child(3) .chip{ background: linear-gradient(135deg, #34d399, #059669); }
-.orbit-item:nth-child(4) .chip{ background: linear-gradient(135deg, #fbbf24, #f59e0b); }
-.orbit-item:nth-child(5) .chip{ background: linear-gradient(135deg, #f87171, #dc2626); }
-.orbit-item:nth-child(6) .chip{ background: linear-gradient(135deg, #a78bfa, #7c3aed); }
-.orbit-item:nth-child(7) .chip{ background: linear-gradient(135deg, #22d3ee, #0891b2); }
-.orbit-item:nth-child(8) .chip{ background: linear-gradient(135deg, #f472b6, #db2777); }
-.orbit-item:nth-child(9) .chip{ background: linear-gradient(135deg, #fb923c, #ea580c); }
-.orbit-item:nth-child(10) .chip{ background: linear-gradient(135deg, #4ade80, #16a34a); }
+.orbit-item:nth-child(2) .chip{ background: linear-gradient(135deg, #61b17e, #60a2e3); }
+.orbit-item:nth-child(3) .chip{ background: linear-gradient(135deg, #3ba77f, #ca54ba); }
+.orbit-item:nth-child(4) .chip{ background: linear-gradient(135deg, #bc7ace, #f59e0b); }
+.orbit-item:nth-child(5) .chip{ background: linear-gradient(135deg, #a8a458, #e45656); }
+.orbit-item:nth-child(6) .chip{ background: linear-gradient(135deg, #79cad8, #875fcb); }
+.orbit-item:nth-child(7) .chip{ background: linear-gradient(135deg, #c5de61, #64b9ce); }
+.orbit-item:nth-child(8) .chip{ background: linear-gradient(135deg, #f472b6, #5d96cb); }
+.orbit-item:nth-child(9) .chip{ background: linear-gradient(135deg, #8ffb3c, #ce794c); }
+.orbit-item:nth-child(10) .chip{ background: linear-gradient(135deg, #5ca577, #16a34a); }
 /* Single source of truth for nav-link styling + animated underline
    (previously duplicated into two conflicting rule blocks with
    mismatched hover colors, underline offsets, and border-radius) */
@@ -1121,10 +1121,8 @@ input {
   font-weight: 700;
   margin-bottom: 18px;
 }
-
-.additional-services__title {
-  font-size: 1.05rem;
-  margin-bottom: 18px;
+.additional-services{
+    margin-top: 70px;
 }
 .chip-grid.chip-grid--mobile-fallback{
   display: none;
@@ -1140,19 +1138,18 @@ input {
 .chip {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #eff6ff, #f0fdf9);
-  border: 1px solid var(--color-border);
+  border: none;
   padding: 16px 26px;
   font-size: 0.95rem;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: var(--radius-pill);
-  color: var(--color-primary-dark);
-  box-shadow: 0 4px 14px rgba(37,99,235,0.1), inset 0 1px 0 rgba(255,255,255,0.6);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  box-shadow: 0 4px 14px rgba(37,99,235,0.15);
   transition:
-    border-color 0.2s ease,
-    color 0.2s ease,
-    box-shadow 0.2s ease,
-    background 0.3s ease;
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
   flex-shrink: 0;
   animation: chipBob 3s ease-in-out infinite;
 }
@@ -1167,7 +1164,9 @@ input {
 .chip:hover{
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 14px 30px -6px rgba(37,99,235,0.5);
+  transform: translateY(-10px) scale(1.08);
+  box-shadow: 0 18px 36px -8px rgba(0,0,0,0.35);
+  filter: saturate(1.15) brightness(1.05);
 }
 .chip:hover::before{
   transform: translateX(120%);
@@ -1189,9 +1188,7 @@ input {
 .chip:nth-child(9n+8){ animation-delay: 2.1s;  background: linear-gradient(135deg, #e0f2fe, #f0f9ff); }
 .chip:nth-child(9n+9){ animation-delay: 2.4s;  background: linear-gradient(135deg, #ffedd5, #fff7ed); }
 
-.chip:hover{
-  background: linear-gradient(135deg, var(--color-primary), var(--color-secondary)) !important;
-}
+
 
 /* ===================================================
    Why Choose Us
