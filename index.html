@@ -2,14 +2,80 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>LaptopCare — Professional Laptop Care At Your Doorstep</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap"
-      rel="stylesheet"
+
+    <title>LaptopGuy | Laptop Cleaning, Repair & Doorstep Service</title>
+
+    <meta
+      name="description"
+      content="Professional laptop cleaning, laptop servicing, SSD upgrades, RAM upgrades, Windows installation, virus removal and software support at your doorstep. Book trusted technicians online."
     />
+
+    <meta
+      name="keywords"
+      content="Laptop Cleaning, Laptop Repair, Laptop Service, SSD Upgrade, RAM Upgrade, Virus Removal, Windows Installation, LaptopGuy"
+    />
+
+    <meta name="author" content="LaptopGuy" />
+
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href="https://laptopguy.in/" />
+
+    <meta name="theme-color" content="#2563eb" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <link rel="stylesheet" href="Frontend/css/style.css" />
+    <link rel="icon" type="image/png" href="Frontend/Assets/imagecopy.webp" />
+
+    <link rel="apple-touch-icon" href="Frontend/Assets/imagecopy.webp" />
+    <meta
+      property="og:title"
+      content="LaptopGuy | Laptop Cleaning, Repair & Doorstep Service"
+    />
+
+    <meta
+      property="og:description"
+      content="Doorstep Laptop Cleaning, Repair & Software Services"
+    />
+
+    <meta
+      property="og:image"
+      content="https://laptopguy.in/Frontend/Assets/imagecopy.png"
+    />
+
+    <meta property="og:url" content="https://laptopguy.in/" />
+
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <meta name="twitter:title" content="LaptopGuy" />
+
+    <meta
+      name="twitter:description"
+      content="Professional laptop cleaning, repair and doorstep service by verified technicians."
+    />
+
+    <meta
+      name="twitter:image"
+      content="https://laptopguy.in/Frontend/Assets/imagecopy.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "LaptopGuy",
+        "url": "https://laptopguy.in",
+        "description": "Professional Laptop Cleaning and Repair Services",
+        "telephone": "+919876543210",
+        "email": "laptopguysupport@gmail.com",
+        "priceRange": "₹200-₹600"
+      }
+    </script>
   </head>
 
   <body>
@@ -19,7 +85,7 @@
         <!-- Logo -->
         <a href="#home" class="logo" data-reveal="left">
           <img
-            src="Frontend/Assets/imagecopy.png"
+            src="Frontend/Assets/imagecopy.webp"
             alt="LaptopGuy Logo"
             class="imgg"
           />
@@ -80,7 +146,7 @@
         </div>
         <div class="hero__visual">
           <img
-            src="Frontend/Assets/image.png"
+            src="Frontend/Assets/image.webp"
             alt="Laptop technician servicing a laptop"
             class="hero-image"
           />
@@ -454,7 +520,6 @@
                     type="radio"
                     name="service"
                     value="External Cleaning"
-                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-option__icon">🧴</span>
@@ -469,7 +534,6 @@
                     type="radio"
                     name="service"
                     value="Internal Cleaning"
-                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-option__icon">⚙️</span>
@@ -484,7 +548,6 @@
                     type="radio"
                     name="service"
                     value="Complete Laptop Care"
-                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-badge">⭐ Popular</span>
@@ -495,7 +558,9 @@
                   </span>
                 </label>
               </div>
-              <span class="field-error" id="planError">Please select a plan before confirming your booking.</span>
+              <span class="field-error" id="planError"
+                >Please select a plan before confirming your booking.</span
+              >
             </div>
 
             <div class="form-field">
@@ -518,7 +583,9 @@
                 <input type="time" id="bkTime" name="time" required />
               </div>
             </div>
-            <span class="field-error" id="dateTimeError">Please select a future date and time.</span>
+            <span class="field-error" id="dateTimeError"
+              >Please select a future date and time.</span
+            >
 
             <button
               type="submit"
