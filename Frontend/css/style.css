@@ -1220,6 +1220,25 @@ input {
   font-size: 0.92rem;
   font-weight: 600;
 }
+.field-error {
+  display: none;
+  color: #DC2626;
+  font-size: 13px;
+  margin-top: 8px;
+  font-weight: 500;
+}
+
+.field-error.is-visible {
+  display: block;
+}
+
+.plan-select.has-error .plan-option__card {
+  border-color: #DC2626;
+}
+
+input.has-error {
+  border-color: #DC2626 !important;
+}
 
 /* ===================================================
    How It Works — Timeline

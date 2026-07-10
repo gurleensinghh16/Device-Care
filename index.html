@@ -454,7 +454,7 @@
                     type="radio"
                     name="service"
                     value="External Cleaning"
-                    required
+                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-option__icon">🧴</span>
@@ -469,7 +469,7 @@
                     type="radio"
                     name="service"
                     value="Internal Cleaning"
-                    required
+                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-option__icon">⚙️</span>
@@ -484,7 +484,7 @@
                     type="radio"
                     name="service"
                     value="Complete Laptop Care"
-                    required
+                    
                   />
                   <span class="plan-option__card">
                     <span class="plan-badge">⭐ Popular</span>
@@ -495,6 +495,7 @@
                   </span>
                 </label>
               </div>
+              <span class="field-error" id="planError">Please select a plan before confirming your booking.</span>
             </div>
 
             <div class="form-field">
@@ -517,6 +518,7 @@
                 <input type="time" id="bkTime" name="time" required />
               </div>
             </div>
+            <span class="field-error" id="dateTimeError">Please select a future date and time.</span>
 
             <button
               type="submit"

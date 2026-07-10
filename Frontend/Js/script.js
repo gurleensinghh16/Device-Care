@@ -94,6 +94,25 @@ const bookingDone = document.getElementById('bookingDone');
 
 const dateInput = document.getElementById('bkDate');
 const timeInput = document.getElementById('bkTime');
+const bkPlanSelect = document.getElementById('bkPlanSelect');
+const planError = document.getElementById('planError');
+const dateTimeError = document.getElementById('dateTimeError');
+
+// Clear errors as soon as the user fixes the field
+bkPlanSelect.querySelectorAll('input[name="service"]').forEach(input => {
+  input.addEventListener('change', () => {
+    planError.classList.remove('is-visible');
+    bkPlanSelect.classList.remove('has-error');
+  });
+});
+
+[dateInput, timeInput].forEach(input => {
+  input.addEventListener('input', () => {
+    dateTimeError.classList.remove('is-visible');
+    dateInput.classList.remove('has-error');
+    timeInput.classList.remove('has-error');
+  });
+});
 
 const today = new Date().toISOString().split('T')[0];
 dateInput.min = today;
@@ -136,6 +155,11 @@ function resetBookingModal(){
   bookingForm.hidden = false;
   bookingFormView.hidden = false;
   bookingSuccessView.hidden = true;
+  planError.classList.remove('is-visible');
+  dateTimeError.classList.remove('is-visible');
+  bkPlanSelect.classList.remove('has-error');
+  dateInput.classList.remove('has-error');
+  timeInput.classList.remove('has-error');
 }
 
 // Every "Book Now" / "Book Service" link on the page opens the modal
@@ -181,15 +205,24 @@ const selectedDateTime = new Date(`${selectedDate}T${selectedTime}`);
 const currentDateTime = new Date();
 
 if (selectedDateTime < currentDateTime) {
-
-    alert("Please select a future date and time.");
-
-    return;
+  dateTimeError.classList.add('is-visible');
+  dateInput.classList.add('has-error');
+  timeInput.classList.add('has-error');
+  return;
+} else {
+  dateTimeError.classList.remove('is-visible');
+  dateInput.classList.remove('has-error');
+  timeInput.classList.remove('has-error');
 }
+
 const selectedPlan = bookingForm.querySelector('input[name="service"]:checked');
 if (!selectedPlan) {
-  alert("Please select a plan before confirming your booking.");
+  planError.classList.add('is-visible');
+  bkPlanSelect.classList.add('has-error');
   return;
+} else {
+  planError.classList.remove('is-visible');
+  bkPlanSelect.classList.remove('has-error');
 }
 
 
